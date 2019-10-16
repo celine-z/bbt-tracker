@@ -22,7 +22,7 @@ class Drink(db.Model):
     __tablename__ = 'drink'
 
     id = Column(Integer, primary_key=True)
-    store = Column(String(20), ForeignKey('store.name'), nullable=False)
+    store = Column(String(20), ForeignKey('store.name', onupdate="CASCADE", ondelete="CASCADE"), nullable=False)
     name = Column(String(50), nullable=False)
     sugar_level = Column(Integer)
     ice_level = Column(Integer)
