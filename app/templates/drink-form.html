@@ -1,0 +1,16 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends 'layout.html' %}
+
+{% block title %}Rate a Drink{% endblock %}
+{% block body %}
+    <br/>
+    <div class="content-section">
+        <div class="center">
+            <h1>Rate a Drink</h1>
+            <br/>
+            {{ wtf.quick_form(form, button_map={'submit': 'success'}) }}
+        </div>
+        <br/>
+        <a class="btn btn-outline-secondary" href="/store/{{store}}">Back</a>
+    </div>
+{% endblock %}

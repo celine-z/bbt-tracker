@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <br/>
+    <h1>Drinks</h1>
+    <br/>
+    <div class="container">
+        <div class="card-deck">
+            {% for drink in drinks %}
+                <div class="col-sm-7 col-md-5 col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{drink.name}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">rating: {{drink.rating}}/5</h6>
+                            <p class="mb-1">sugar level: {{drink.sugar_level}}</p>
+                            <p class="mb-1">ice level: {{drink.ice_level}}</p>
+                            {% if drink.comments is defined and drink.comments is not none and drink.comments|length %}
+                                <p class="card-text"><small class="text-muted">{{drink.comments}}</small></p>
+                            {% endif %}
+                            <form action="/store/{{drink.store}}/drink/{{drink.id}}" method="post">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                                <input class="btn btn-outline-danger float-right" type="submit" value="delete">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <br/>
+    <form action="/store/{{store}}/drink" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+        <input class="btn btn-primary" type="submit" value="New Drink">
+    </form>
+    <br/>
+    <a class="btn btn-outline-secondary" href="/stores">Back</a>
+{% endblock %}

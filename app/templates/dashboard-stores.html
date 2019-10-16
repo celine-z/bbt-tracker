@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <br/>
+    <h1>Stores</h1>
+    <br/>
+    <div class="container">
+        <div class="card-deck">
+                {% for store in stores %}
+                <div class="col-sm-7 col-md-5 col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{store.name}}</h5>
+                            {% if store.comments is defined and store.comments is not none and store.comments|length %}
+                                <p class="card-text">{{store.comments}}</p>
+                            {% endif %}
+                            <a class="btn btn-info float-left fixed" href="/store/{{store.name}}">drinks</a>
+                            <form action="/store/{{store.id}}" method="post">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                                <input class="btn btn-outline-danger float-right" type="submit" value="delete">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                 {% endfor %}
+        </div>
+    </div>
+    <br/>
+    <form action="/store" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+        <input class="btn btn-primary" type="submit" value="New Store">
+    </form>
+{% endblock %}
