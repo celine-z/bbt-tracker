@@ -1,4 +1,4 @@
-# bbt-tracker
+# BBT Tracker
 
 ## Getting Started
 #### Requirements
