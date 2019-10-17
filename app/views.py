@@ -26,9 +26,9 @@ def create_store():
         try:
             db.session.add(store)
             db.session.commit()
+            current_app.logger.info("added new store")
         except SQLAlchemyError:
             current_app.logger.info("error adding new store")
-        current_app.logger.info("added new store")
         return redirect(url_for('view.dashboard_stores'))
 
     return render_template('store-form.html', form=form)
@@ -39,9 +39,9 @@ def delete_store(store_id):
     try:
         Store.query.filter_by(id=store_id).delete()
         db.session.commit()
+        current_app.logger.info("deleted store with id {}".format(store_id))
     except SQLAlchemyError:
         current_app.logger.info("error deleting store with id {}".format(store_id))
-    current_app.logger.info("deleted store with id {}".format(store_id))
     return redirect(url_for('view.dashboard_stores'))
 
 
@@ -64,9 +64,9 @@ def create_drink(store):
         try:
             db.session.add(drink)
             db.session.commit()
+            current_app.logger.info("added new drink to store {}".format(store))
         except SQLAlchemyError:
             current_app.logger.info("error adding new drink to store {}".format(store))
-        current_app.logger.info("added new drink to store {}".format(store))
         return redirect(url_for('view.dashboard_drinks', store=store))
     return render_template('drink-form.html', form=form, store=store)
 
@@ -76,7 +76,7 @@ def delete_drink(store, drink_id):
     try:
         Drink.query.filter_by(id=drink_id).delete()
         db.session.commit()
+        current_app.logger.info("deleted drink with id {}".format(drink_id))
     except SQLAlchemyError:
         current_app.logger.info("error deleting drink with id {}".format(drink_id))
-    current_app.logger.info("deleted drink with id {}".format(drink_id))
     return redirect(url_for('view.dashboard_drinks', store=store))

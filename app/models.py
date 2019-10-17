@@ -15,7 +15,7 @@ class Store(db.Model):
         self.comments = comments
 
     def __repr__(self):
-        return "<name: {}, img_file: {}, comments{}>".format(self.name, self.img_file, self.comments)
+        return "<name: {}, comments{}>".format(self.name, self.comments)
 
 
 class Drink(db.Model):
