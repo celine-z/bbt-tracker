@@ -26,8 +26,11 @@
         </div>
     </div>
     <br/>
-    <form action="/store" method="post">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-        <input class="btn btn-primary" type="submit" value="New Store">
-    </form>
+    <div>
+        <form action="/store" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+            <input class="btn btn-primary" type="submit" value="New Store">
+        </form>
+    </div>
+    <br/>
 {% endblock %}
