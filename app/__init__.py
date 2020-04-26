@@ -1,12 +1,12 @@
 from flask import Flask, Blueprint
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
-from flask_wtf.csrf import CsrfProtect
+from flask_wtf.csrf import CSRFProtect
 
 from config import Config
 
 bootstrap = Bootstrap()
-csrf = CsrfProtect()
+csrf = CSRFProtect()
 db = SQLAlchemy()
 view = Blueprint('view', __name__)
 
