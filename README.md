@@ -13,7 +13,7 @@ Create a virtual environment. On windows, the command is as follows:
 
 Now run the virtual environment:
 
-```.\env\Scripts\activate```
+```./env/Scripts/activate```
 
 #### Install the dependencies:
 
