@@ -1,4 +1,7 @@
 # BBT Tracker
+![drinks](https://user-images.githubusercontent.com/25543099/83160264-fa3c7b00-a0d4-11ea-933f-725be3f95063.png)
+
+![stores](https://user-images.githubusercontent.com/25543099/83159972-9dd95b80-a0d4-11ea-8be9-b60ad125ce8f.png)
 
 ## Getting Started
 #### Requirements
